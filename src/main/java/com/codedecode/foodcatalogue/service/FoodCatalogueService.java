@@ -22,7 +22,17 @@ public class FoodCatalogueService {
     public FoodItemDTO addFoodItem(FoodItemDTO foodItemDTO) {
         FoodItemMapper mapper = new FoodItemMapper();
        FoodItem savedFoodItem =  foodItemRepo.save(mapper.mapToFoodItem(foodItemDTO));
-       return mapper.mapToFoodItemDTO(savedFoodItem);
+
+      FoodItemDTO dto =  mapper.mapToFoodItemDTO(savedFoodItem);
+
+      dto.setId(savedFoodItem.getId());
+      dto.setItemName(savedFoodItem.getItemName());
+      dto.setItemDescription(savedFoodItem.getItemDescription());
+      dto.setIsVeg(savedFoodItem.getIsVeg());
+      dto.setPrice(savedFoodItem.getPrice());
+      dto.setRestaurantId(savedFoodItem.getRestaurantId());
+
+       return dto;
     }
 
     public FoodCataloguePage fetchRestaurantDetailsWithFoodMenu(Integer restaurantId) {

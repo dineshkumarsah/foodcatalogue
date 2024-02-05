@@ -4,10 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
 @Entity
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItem {
