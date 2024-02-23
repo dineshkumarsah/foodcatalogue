@@ -7,15 +7,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class FoodCatalogueMicroServiceApplication {
+public class FoodcatalogueApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoodCatalogueMicroServiceApplication.class, args);
+		SpringApplication.run(FoodcatalogueApplication.class, args);
 	}
+
 	@Bean
 	@LoadBalanced
 	public RestTemplate getRestTemplate(){
 		return new RestTemplate();
-	} 
+	}
 
 }

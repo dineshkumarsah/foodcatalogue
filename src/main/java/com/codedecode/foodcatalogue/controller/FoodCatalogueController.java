@@ -2,6 +2,7 @@ package com.codedecode.foodcatalogue.controller;
 
 import com.codedecode.foodcatalogue.dto.FoodCataloguePage;
 import com.codedecode.foodcatalogue.dto.FoodItemDTO;
+import com.codedecode.foodcatalogue.dto.MenuDTO;
 import com.codedecode.foodcatalogue.entity.FoodItem;
 import com.codedecode.foodcatalogue.service.FoodCatalogueService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("foodCatalogue")
+@RequestMapping("foodcatalogue")
 @CrossOrigin
 public class FoodCatalogueController {
     @Autowired
@@ -24,6 +25,16 @@ public class FoodCatalogueController {
     public ResponseEntity<FoodCataloguePage> fetchRestaurantDetailsWithFoodMenu(@PathVariable Integer restaurantId){
         FoodCataloguePage foodCataloguePage = foodCatalogueService.fetchRestaurantDetailsWithFoodMenu(restaurantId);
         return new ResponseEntity<>(foodCataloguePage,HttpStatus.OK);
+    }
+    @GetMapping("/hello")
+    public String getBame(){
+        return "dinesh";
+    }
+    @PostMapping("/menu")
+    public ResponseEntity<MenuDTO>  addMenu(@RequestBody MenuDTO menuDTO){
+        MenuDTO saveItem = foodCatalogueService.saveMenu(menuDTO);
+        return new  ResponseEntity<>(saveItem,HttpStatus.CREATED);
+
     }
 
 }

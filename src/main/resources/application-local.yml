@@ -1,3 +1,5 @@
+#server:
+#  port: 9091
 #eureka:
 #  client:
 #    service-url:
@@ -5,11 +7,12 @@
 
 spring:
   application:
-    name: FOOD-CATALOGUE-SERVICE
+    name: FOODCATALOGUE-SERVICE
   datasource:
-    url: jdbc:mysql://localhost:3306/foodcatalogue
-    password: root
-    username: root
+#    url: jdbc:mysql://localhost:3306/foodcatalogue
+    url: jdbc:mysql://mysql-db.c7g6ki2q2duj.ap-south-2.rds.amazonaws.com:3306/foodcatalogue
+    password: Hsenidbhu1
+    username: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
